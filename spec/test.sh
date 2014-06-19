@@ -1,0 +1,2 @@
+# Make sure to run the app first with ruby sin.rb
+curl -X POST localhost:4567 -d '{ "to": "Ian Olsen <iolsen@newrelic.com>", "subject": "hello world", "body": "Hi Ian! Sending you an email via this API I just made." }'

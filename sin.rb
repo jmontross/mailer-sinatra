@@ -30,7 +30,11 @@ post "/" do
 	details = JSON.parse @json
 	
 	if details and details['to'] and details['subject'] and details['body']
-		message(details['to'], details['subject'], details['body'])
+		begin 
+			message(details['to'], details['subject'], details['body'])
+		rescue Exception => e
+			puts e.inspect
+		end
 		return "all good - emailed ya at #{details['to']}"
 	else
 		return "you might be missings some required fields such as to, subject, and body... here's your body of post #{details.inspect}"

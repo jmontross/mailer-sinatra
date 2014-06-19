@@ -21,13 +21,11 @@ def message(to, subject, message)
 end
 
 post "/" do 
-	puts params.inspect
-	puts params.to_s
+	details = []
 	
 	params.each do |k,v|
-		@json = k
+		details = JSON.parse k
 	end	
-	details = JSON.parse @json
 	
 	if details and details['to'] and details['subject'] and details['body']
 		begin 
